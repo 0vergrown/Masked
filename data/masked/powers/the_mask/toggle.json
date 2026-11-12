@@ -1,0 +1,34 @@
+{
+  "type": "apoli:action_on_key_press",
+  "key": {
+    "key": "key.origins.primary_active",
+    "continuous": false
+  },
+  "cooldown": 10,
+  "entity_action": {
+    "type": "apoli:if_else",
+    "condition": {
+      "type": "apoli:resource",
+      "resource": "masked:the_mask/worn",
+      "comparison": "==",
+      "compare_to": 1
+    },
+    "if_action": {
+      "type": "apoli:modify_resource",
+      "resource": "masked:the_mask/worn",
+      "modifier": {
+        "operation": "set_total",
+        "value": 0
+      }
+    },
+    "else_action": {
+      "type": "apoli:modify_resource",
+      "resource": "masked:the_mask/worn",
+      "modifier": {
+        "operation": "set_total",
+        "value": 1
+      }
+    }
+  },
+  "hidden": true
+}

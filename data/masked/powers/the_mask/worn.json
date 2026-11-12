@@ -1,0 +1,62 @@
+{
+  "type": "apoli:resource",
+  "min": 0,
+  "max": 1,
+  "start_value": 0,
+  "persistent": true,
+  "on_change": [
+    {
+      "value": 1,
+      "entity_action": {
+        "type": "apoli:and",
+        "actions": [
+          {
+            "type": "apoli:play_sound",
+            "sound": "minecraft:item.armor.equip_leather",
+            "volume": 1.0,
+            "pitch": 0.8
+          },
+          {
+            "type": "apoli:play_sound",
+            "sound": "minecraft:block.azalea_leaves.place",
+            "volume": 0.8,
+            "pitch": 1.1
+          },
+          {
+            "type": "apoli:spawn_particles",
+            "particle": "minecraft:composter",
+            "count": 6,
+            "spread": {
+              "x": 0.3,
+              "y": 0.3,
+              "z": 0.3
+            },
+            "speed": 0.0,
+            "offset_y": 1.7
+          }
+        ]
+      }
+    },
+    {
+      "value": 0,
+      "entity_action": {
+        "type": "apoli:and",
+        "actions": [
+          {
+            "type": "apoli:play_sound",
+            "sound": "minecraft:item.armor.equip_generic",
+            "volume": 0.8,
+            "pitch": 1.2
+          },
+          {
+            "type": "apoli:play_sound",
+            "sound": "minecraft:block.azalea_leaves.break",
+            "volume": 0.6,
+            "pitch": 1.2
+          }
+        ]
+      }
+    }
+  ],
+  "hidden": true
+}

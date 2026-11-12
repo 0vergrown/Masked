@@ -1,0 +1,9 @@
+{
+  "entity_types": "minecraft:parrot",
+  "powers": [
+    "masked:jungle_companion/parrot/companion",
+    "masked:jungle_companion/parrot/canopy",
+    "masked:jungle_companion/parrot/safe",
+    "masked:jungle_companion/parrot/watch"
+  ]
+}

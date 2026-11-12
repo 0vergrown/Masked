@@ -1,0 +1,10 @@
+{
+  "pack": {
+    "description": "Masked: an Origins origin for the hidden people of the jungle.",
+    "pack_format": 15,
+    "supported_formats": {
+      "min_inclusive": 15,
+      "max_inclusive": 48
+    }
+  }
+}

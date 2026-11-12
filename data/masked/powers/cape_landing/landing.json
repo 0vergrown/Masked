@@ -1,0 +1,57 @@
+{
+  "type": "apoli:action_on_land",
+  "entity_action": {
+    "type": "apoli:if_else",
+    "condition": {
+      "type": "apoli:resource",
+      "resource": "masked:cape_landing/open",
+      "comparison": "==",
+      "compare_to": 1
+    },
+    "if_action": {
+      "type": "apoli:and",
+      "actions": [
+        {
+          "type": "apoli:play_sound",
+          "sound": "minecraft:block.wool.place",
+          "volume": 0.8,
+          "pitch": 0.8
+        },
+        {
+          "type": "apoli:spawn_particles",
+          "particle": "minecraft:cloud",
+          "count": 6,
+          "spread": {
+            "x": 0.4,
+            "y": 0.4,
+            "z": 0.4
+          },
+          "speed": 0.02,
+          "offset_y": 0.1
+        },
+        {
+          "type": "apoli:delay",
+          "ticks": 2,
+          "action": {
+            "type": "apoli:and",
+            "actions": [
+              {
+                "type": "apoli:modify_resource",
+                "resource": "masked:cape_landing/open",
+                "modifier": {
+                  "operation": "set_total",
+                  "value": 0
+                }
+              },
+              {
+                "type": "apoli:trigger_cooldown",
+                "power": "masked:cape_landing/fold"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "hidden": true
+}

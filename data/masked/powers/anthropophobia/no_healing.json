@@ -1,0 +1,10 @@
+{
+  "type": "apoli:disable_regen",
+  "condition": {
+    "type": "apoli:resource",
+    "resource": "masked:the_mask/worn",
+    "comparison": "==",
+    "compare_to": 0
+  },
+  "hidden": true
+}

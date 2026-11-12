@@ -1,0 +1,27 @@
+{
+  "type": "apoli:phasing",
+  "block_condition": {
+    "type": "apoli:in_tag",
+    "tag": "#masked:canopy"
+  },
+  "render_type": "blindness",
+  "view_distance": 6.0,
+  "phase_down_condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:sneaking"
+      },
+      {
+        "type": "apoli:on_block"
+      }
+    ]
+  },
+  "condition": {
+    "type": "apoli:resource",
+    "resource": "masked:the_mask/worn",
+    "comparison": "==",
+    "compare_to": 1
+  },
+  "hidden": true
+}

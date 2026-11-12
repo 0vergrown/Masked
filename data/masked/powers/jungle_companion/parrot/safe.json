@@ -1,0 +1,14 @@
+{
+  "type": "apoli:invulnerability",
+  "damage_condition": {
+    "type": "apoli:type",
+    "damage_type": "minecraft:in_wall"
+  },
+  "condition": {
+    "type": "apoli:resource",
+    "resource": "masked:jungle_companion/parrot/companion",
+    "comparison": "==",
+    "compare_to": 1
+  },
+  "hidden": true
+}

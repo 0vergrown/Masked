@@ -1,0 +1,13 @@
+{
+  "type": "apoli:overlay",
+  "texture": "masked:textures/gui/mask_view.png",
+  "draw_phase": "below_hud",
+  "strength": 1.0,
+  "condition": {
+    "type": "apoli:resource",
+    "resource": "masked:the_mask/worn",
+    "comparison": "==",
+    "compare_to": 1
+  },
+  "hidden": true
+}

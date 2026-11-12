@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:logs_that_burn",
+    "#minecraft:leaves",
+    "#minecraft:climbable",
+    "minecraft:bamboo",
+    "minecraft:bamboo_sapling",
+    "minecraft:cocoa"
+  ]
+}

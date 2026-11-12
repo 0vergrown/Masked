@@ -1,0 +1,30 @@
+{
+  "type": "apoli:attribute",
+  "modifiers": [
+    {
+      "name": "Masked speed",
+      "attribute": "minecraft:generic.movement_speed",
+      "operation": "multiply_base",
+      "value": 0.4
+    },
+    {
+      "name": "Masked strength",
+      "attribute": "minecraft:generic.attack_damage",
+      "operation": "addition",
+      "value": 3
+    },
+    {
+      "name": "Masked footing",
+      "attribute": "minecraft:generic.knockback_resistance",
+      "operation": "addition",
+      "value": 0.4
+    }
+  ],
+  "condition": {
+    "type": "apoli:resource",
+    "resource": "masked:the_mask/worn",
+    "comparison": "==",
+    "compare_to": 1
+  },
+  "hidden": true
+}

@@ -1,0 +1,48 @@
+{
+  "type": "apoli:modify_model_parts",
+  "perspectives": [
+    "third_person"
+  ],
+  "transformations": [
+    {
+      "model_part": "right_arm",
+      "type": "roll",
+      "value": 1.35,
+      "override_animation": true
+    },
+    {
+      "model_part": "right_arm",
+      "type": "pitch",
+      "value": -0.3,
+      "override_animation": true
+    },
+    {
+      "model_part": "left_arm",
+      "type": "roll",
+      "value": -1.35,
+      "override_animation": true
+    },
+    {
+      "model_part": "left_arm",
+      "type": "pitch",
+      "value": -0.3,
+      "override_animation": true
+    }
+  ],
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:resource",
+        "resource": "masked:cape_landing/open",
+        "comparison": "==",
+        "compare_to": 1
+      },
+      {
+        "type": "apoli:swimming",
+        "inverted": true
+      }
+    ]
+  },
+  "hidden": true
+}

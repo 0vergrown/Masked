@@ -1,0 +1,22 @@
+{
+  "type": "apoli:night_vision",
+  "strength": 1.0,
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:resource",
+        "resource": "masked:the_mask/worn",
+        "comparison": "==",
+        "compare_to": 1
+      },
+      {
+        "type": "apoli:resource",
+        "resource": "masked:jungle_companion/perched",
+        "comparison": ">=",
+        "compare_to": 1
+      }
+    ]
+  },
+  "hidden": true
+}

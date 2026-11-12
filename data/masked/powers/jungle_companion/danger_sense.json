@@ -1,0 +1,34 @@
+{
+  "type": "apoli:entity_glow",
+  "entity_condition": {
+    "type": "apoli:entity_type",
+    "entity_type": "#masked:jungle_companion/dangers"
+  },
+  "bientity_condition": {
+    "type": "apoli:distance",
+    "comparison": "<=",
+    "compare_to": 24.0
+  },
+  "use_teams": false,
+  "red": 1.0,
+  "green": 0.22,
+  "blue": 0.18,
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:resource",
+        "resource": "masked:the_mask/worn",
+        "comparison": "==",
+        "compare_to": 1
+      },
+      {
+        "type": "apoli:resource",
+        "resource": "masked:jungle_companion/perched",
+        "comparison": ">=",
+        "compare_to": 1
+      }
+    ]
+  },
+  "hidden": true
+}

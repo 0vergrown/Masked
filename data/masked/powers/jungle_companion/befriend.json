@@ -1,0 +1,45 @@
+{
+  "type": "apoli:action_on_tame",
+  "bientity_condition": {
+    "type": "apoli:target_condition",
+    "condition": {
+      "type": "apoli:entity_type",
+      "entity_type": "minecraft:parrot"
+    }
+  },
+  "bientity_action": {
+    "type": "apoli:target_action",
+    "action": {
+      "type": "apoli:and",
+      "actions": [
+        {
+          "type": "apoli:modify_resource",
+          "resource": "masked:jungle_companion/parrot/companion",
+          "modifier": {
+            "operation": "set_total",
+            "value": 1
+          }
+        },
+        {
+          "type": "apoli:spawn_particles",
+          "particle": "minecraft:heart",
+          "count": 4,
+          "spread": {
+            "x": 0.3,
+            "y": 0.3,
+            "z": 0.3
+          },
+          "speed": 0.0,
+          "offset_y": 0.6
+        },
+        {
+          "type": "apoli:play_sound",
+          "sound": "minecraft:entity.parrot.ambient",
+          "volume": 0.8,
+          "pitch": 1.2
+        }
+      ]
+    }
+  },
+  "hidden": true
+}

@@ -1,0 +1,8 @@
+{
+  "type": "apoli:action_on_callback",
+  "entity_action_added": {
+    "type": "apoli:run_function",
+    "function": "masked:jungle_companion/recount"
+  },
+  "hidden": true
+}

@@ -1,0 +1,81 @@
+{
+  "type": "apoli:action_on_item_use",
+  "trigger": "start",
+  "priority": -1,
+  "item_condition": {
+    "type": "apoli:ingredient",
+    "ingredient": {
+      "item": "minecraft:crossbow"
+    }
+  },
+  "entity_action": {
+    "type": "apoli:area_of_effect",
+    "radius": 4.0,
+    "shape": "sphere",
+    "bientity_condition": {
+      "type": "apoli:and",
+      "conditions": [
+        {
+          "type": "apoli:target_condition",
+          "condition": {
+            "type": "apoli:entity_type",
+            "entity_type": "#minecraft:arrows"
+          }
+        },
+        {
+          "type": "apoli:projectile_owner"
+        },
+        {
+          "type": "apoli:in_entity_set",
+          "set": "masked:warping_shadow/bolts",
+          "inverted": true
+        }
+      ]
+    },
+    "bientity_action": {
+      "type": "apoli:and",
+      "actions": [
+        {
+          "type": "apoli:add_to_entity_set",
+          "set": "masked:warping_shadow/bolts",
+          "time_limit": 400
+        },
+        {
+          "type": "apoli:target_action",
+          "action": {
+            "type": "apoli:grant_power",
+            "power": "masked:warping_shadow/bolt",
+            "source": "masked:warping_shadow"
+          }
+        }
+      ]
+    }
+  },
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:equipped_item",
+        "equipment_slot": "offhand",
+        "item_condition": {
+          "type": "apoli:ingredient",
+          "ingredient": {
+            "item": "minecraft:crossbow"
+          }
+        }
+      },
+      {
+        "type": "apoli:equipped_item",
+        "equipment_slot": "mainhand",
+        "item_condition": {
+          "type": "apoli:ingredient",
+          "ingredient": {
+            "item": "minecraft:crossbow"
+          }
+        },
+        "inverted": true
+      }
+    ]
+  },
+  "hidden": true
+}

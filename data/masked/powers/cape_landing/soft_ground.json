@@ -1,0 +1,11 @@
+{
+  "type": "apoli:modify_falling",
+  "take_fall_damage": false,
+  "condition": {
+    "type": "apoli:resource",
+    "resource": "masked:cape_landing/open",
+    "comparison": "==",
+    "compare_to": 1
+  },
+  "hidden": true
+}

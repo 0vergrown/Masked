@@ -1,0 +1,26 @@
+{
+  "type": "apoli:modify_velocity",
+  "axes": [
+    "y"
+  ],
+  "modifier": {
+    "operation": "min_base",
+    "value": -0.12
+  },
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:resource",
+        "resource": "masked:cape_landing/open",
+        "comparison": "==",
+        "compare_to": 1
+      },
+      {
+        "type": "apoli:swimming",
+        "inverted": true
+      }
+    ]
+  },
+  "hidden": true
+}

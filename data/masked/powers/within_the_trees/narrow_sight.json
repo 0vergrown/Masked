@@ -1,0 +1,29 @@
+{
+  "type": "apoli:modify_fog",
+  "s": 1.0,
+  "v": 18.0,
+  "r": 0.09,
+  "g": 0.15,
+  "b": 0.07,
+  "fade_in": 0.6,
+  "fade_out": 0.6,
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:resource",
+        "resource": "masked:the_mask/worn",
+        "comparison": "==",
+        "compare_to": 1
+      },
+      {
+        "type": "apoli:resource",
+        "resource": "masked:jungle_companion/perched",
+        "comparison": ">=",
+        "compare_to": 1,
+        "inverted": true
+      }
+    ]
+  },
+  "hidden": true
+}

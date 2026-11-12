@@ -1,0 +1,35 @@
+{
+  "type": "apoli:function",
+  "entity_action": {
+    "type": "apoli:if_else",
+    "condition": {
+      "type": "apoli:or",
+      "conditions": [
+        {
+          "type": "apoli:nbt",
+          "nbt": "{ShoulderEntityLeft:{id:\"minecraft:parrot\"}}"
+        },
+        {
+          "type": "apoli:nbt",
+          "nbt": "{ShoulderEntityRight:{id:\"minecraft:parrot\"}}"
+        }
+      ]
+    },
+    "if_action": {
+      "type": "apoli:modify_resource",
+      "resource": "masked:jungle_companion/perched",
+      "modifier": {
+        "operation": "set_total",
+        "value": 1
+      }
+    },
+    "else_action": {
+      "type": "apoli:modify_resource",
+      "resource": "masked:jungle_companion/perched",
+      "modifier": {
+        "operation": "set_total",
+        "value": 0
+      }
+    }
+  }
+}

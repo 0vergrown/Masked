@@ -1,0 +1,394 @@
+{
+  "type": "apoli:replace_sound_emission",
+  "replace": false,
+  "sounds": {
+    "minecraft:entity.arrow.hit": "minecraft:empty",
+    "minecraft:item.crossbow.hit": "minecraft:empty"
+  },
+  "entity_action": {
+    "type": "apoli:action_on_entity_set",
+    "set": "masked:warping_shadow/bolts",
+    "iterate": "owners",
+    "bientity_action": {
+      "type": "apoli:if_else",
+      "condition": {
+        "type": "apoli:actor_condition",
+        "condition": {
+          "type": "apoli:and",
+          "conditions": [
+            {
+              "type": "apoli:entity_in_radius",
+              "radius": 7.0,
+              "shape": "sphere",
+              "comparison": ">=",
+              "compare_to": 1,
+              "bientity_condition": {
+                "type": "apoli:and",
+                "conditions": [
+                  {
+                    "type": "apoli:target_condition",
+                    "condition": {
+                      "type": "apoli:entity_type",
+                      "entity_type": "minecraft:player"
+                    }
+                  },
+                  {
+                    "type": "apoli:target_condition",
+                    "condition": {
+                      "type": "apoli:gamemode",
+                      "gamemode": "spectator",
+                      "inverted": true
+                    }
+                  },
+                  {
+                    "type": "apoli:equal",
+                    "inverted": true
+                  }
+                ]
+              }
+            },
+            {
+              "type": "apoli:random_chance",
+              "chance": 0.3
+            }
+          ]
+        }
+      },
+      "if_action": {
+        "type": "apoli:and",
+        "actions": [
+          {
+            "type": "apoli:actor_action",
+            "action": {
+              "type": "apoli:and",
+              "actions": [
+                {
+                  "type": "apoli:play_sound",
+                  "sound": "minecraft:entity.illusioner.mirror_move",
+                  "volume": 0.6,
+                  "pitch": 0.6
+                },
+                {
+                  "type": "apoli:text",
+                  "bar": "actionbar",
+                  "text": {
+                    "translate": "message.masked.warping_shadow.fumble"
+                  },
+                  "fadein": 4,
+                  "duration": 50,
+                  "fadeout": 12
+                }
+              ]
+            }
+          },
+          {
+            "type": "apoli:actor_action",
+            "action": {
+              "type": "apoli:action_on_entity_set",
+              "set": "masked:warping_shadow/bolts",
+              "bientity_action": {
+                "type": "apoli:and",
+                "actions": [
+                  {
+                    "type": "apoli:remove_from_entity_set",
+                    "set": "masked:warping_shadow/bolts"
+                  },
+                  {
+                    "type": "apoli:target_action",
+                    "action": {
+                      "type": "apoli:revoke_power",
+                      "power": "masked:warping_shadow/bolt",
+                      "source": "masked:warping_shadow"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "else_action": {
+        "type": "apoli:and",
+        "actions": [
+          {
+            "type": "apoli:actor_action",
+            "action": {
+              "type": "apoli:and",
+              "actions": [
+                {
+                  "type": "apoli:spawn_particles",
+                  "particle": "minecraft:large_smoke",
+                  "count": 14,
+                  "spread": {
+                    "x": 0.3,
+                    "y": 0.3,
+                    "z": 0.3
+                  },
+                  "speed": 0.02,
+                  "offset_y": 1.0
+                },
+                {
+                  "type": "apoli:play_sound",
+                  "sound": "minecraft:entity.enderman.teleport",
+                  "volume": 0.5,
+                  "pitch": 0.6
+                }
+              ]
+            }
+          },
+          {
+            "type": "apoli:teleport_to",
+            "landing_condition": {
+              "type": "apoli:block_collision",
+              "inverted": true
+            },
+            "success_action": {
+              "type": "apoli:actor_action",
+              "action": {
+                "type": "apoli:and",
+                "actions": [
+                  {
+                    "type": "apoli:set_fall_distance",
+                    "fall_distance": 0.0
+                  },
+                  {
+                    "type": "apoli:spawn_particles",
+                    "particle": "minecraft:large_smoke",
+                    "count": 14,
+                    "spread": {
+                      "x": 0.3,
+                      "y": 0.3,
+                      "z": 0.3
+                    },
+                    "speed": 0.02,
+                    "offset_y": 1.0
+                  },
+                  {
+                    "type": "apoli:spawn_particles",
+                    "particle": "minecraft:reverse_portal",
+                    "count": 30,
+                    "spread": {
+                      "x": 0.4,
+                      "y": 0.4,
+                      "z": 0.4
+                    },
+                    "speed": 0.05,
+                    "offset_y": 1.0
+                  },
+                  {
+                    "type": "apoli:play_sound",
+                    "sound": "minecraft:entity.enderman.teleport",
+                    "volume": 0.7,
+                    "pitch": 0.7
+                  }
+                ]
+              }
+            },
+            "fail_action": {
+              "type": "apoli:teleport_to",
+              "landing_condition": {
+                "type": "apoli:block_collision",
+                "inverted": true
+              },
+              "success_action": {
+                "type": "apoli:actor_action",
+                "action": {
+                  "type": "apoli:and",
+                  "actions": [
+                    {
+                      "type": "apoli:set_fall_distance",
+                      "fall_distance": 0.0
+                    },
+                    {
+                      "type": "apoli:spawn_particles",
+                      "particle": "minecraft:large_smoke",
+                      "count": 14,
+                      "spread": {
+                        "x": 0.3,
+                        "y": 0.3,
+                        "z": 0.3
+                      },
+                      "speed": 0.02,
+                      "offset_y": 1.0
+                    },
+                    {
+                      "type": "apoli:spawn_particles",
+                      "particle": "minecraft:reverse_portal",
+                      "count": 30,
+                      "spread": {
+                        "x": 0.4,
+                        "y": 0.4,
+                        "z": 0.4
+                      },
+                      "speed": 0.05,
+                      "offset_y": 1.0
+                    },
+                    {
+                      "type": "apoli:play_sound",
+                      "sound": "minecraft:entity.enderman.teleport",
+                      "volume": 0.7,
+                      "pitch": 0.7
+                    }
+                  ]
+                }
+              },
+              "fail_action": {
+                "type": "apoli:teleport_to",
+                "landing_condition": {
+                  "type": "apoli:block_collision",
+                  "inverted": true
+                },
+                "success_action": {
+                  "type": "apoli:actor_action",
+                  "action": {
+                    "type": "apoli:and",
+                    "actions": [
+                      {
+                        "type": "apoli:set_fall_distance",
+                        "fall_distance": 0.0
+                      },
+                      {
+                        "type": "apoli:spawn_particles",
+                        "particle": "minecraft:large_smoke",
+                        "count": 14,
+                        "spread": {
+                          "x": 0.3,
+                          "y": 0.3,
+                          "z": 0.3
+                        },
+                        "speed": 0.02,
+                        "offset_y": 1.0
+                      },
+                      {
+                        "type": "apoli:spawn_particles",
+                        "particle": "minecraft:reverse_portal",
+                        "count": 30,
+                        "spread": {
+                          "x": 0.4,
+                          "y": 0.4,
+                          "z": 0.4
+                        },
+                        "speed": 0.05,
+                        "offset_y": 1.0
+                      },
+                      {
+                        "type": "apoli:play_sound",
+                        "sound": "minecraft:entity.enderman.teleport",
+                        "volume": 0.7,
+                        "pitch": 0.7
+                      }
+                    ]
+                  }
+                },
+                "fail_action": {
+                  "type": "apoli:teleport_to",
+                  "landing_condition": {
+                    "type": "apoli:block_collision",
+                    "inverted": true
+                  },
+                  "success_action": {
+                    "type": "apoli:actor_action",
+                    "action": {
+                      "type": "apoli:and",
+                      "actions": [
+                        {
+                          "type": "apoli:set_fall_distance",
+                          "fall_distance": 0.0
+                        },
+                        {
+                          "type": "apoli:spawn_particles",
+                          "particle": "minecraft:large_smoke",
+                          "count": 14,
+                          "spread": {
+                            "x": 0.3,
+                            "y": 0.3,
+                            "z": 0.3
+                          },
+                          "speed": 0.02,
+                          "offset_y": 1.0
+                        },
+                        {
+                          "type": "apoli:spawn_particles",
+                          "particle": "minecraft:reverse_portal",
+                          "count": 30,
+                          "spread": {
+                            "x": 0.4,
+                            "y": 0.4,
+                            "z": 0.4
+                          },
+                          "speed": 0.05,
+                          "offset_y": 1.0
+                        },
+                        {
+                          "type": "apoli:play_sound",
+                          "sound": "minecraft:entity.enderman.teleport",
+                          "volume": 0.7,
+                          "pitch": 0.7
+                        }
+                      ]
+                    }
+                  },
+                  "fail_action": {
+                    "type": "apoli:actor_action",
+                    "action": {
+                      "type": "apoli:and",
+                      "actions": [
+                        {
+                          "type": "apoli:play_sound",
+                          "sound": "minecraft:block.note_block.didgeridoo",
+                          "volume": 0.6,
+                          "pitch": 0.8
+                        },
+                        {
+                          "type": "apoli:text",
+                          "bar": "actionbar",
+                          "text": {
+                            "translate": "message.masked.warping_shadow.blocked"
+                          },
+                          "fadein": 4,
+                          "duration": 50,
+                          "fadeout": 12
+                        }
+                      ]
+                    }
+                  },
+                  "x": "-0.7 * (target_x - x) / max(0.01, sqrt((target_x - x) * (target_x - x) + (target_z - z) * (target_z - z)))",
+                  "y": -1.0,
+                  "z": "-0.7 * (target_z - z) / max(0.01, sqrt((target_x - x) * (target_x - x) + (target_z - z) * (target_z - z)))"
+                },
+                "x": "-0.7 * (target_x - x) / max(0.01, sqrt((target_x - x) * (target_x - x) + (target_z - z) * (target_z - z)))",
+                "z": "-0.7 * (target_z - z) / max(0.01, sqrt((target_x - x) * (target_x - x) + (target_z - z) * (target_z - z)))"
+              },
+              "y": 1.0
+            }
+          },
+          {
+            "type": "apoli:actor_action",
+            "action": {
+              "type": "apoli:action_on_entity_set",
+              "set": "masked:warping_shadow/bolts",
+              "bientity_action": {
+                "type": "apoli:and",
+                "actions": [
+                  {
+                    "type": "apoli:remove_from_entity_set",
+                    "set": "masked:warping_shadow/bolts"
+                  },
+                  {
+                    "type": "apoli:target_action",
+                    "action": {
+                      "type": "apoli:revoke_power",
+                      "power": "masked:warping_shadow/bolt",
+                      "source": "masked:warping_shadow"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "hidden": true
+}

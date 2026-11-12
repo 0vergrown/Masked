@@ -1,0 +1,15 @@
+{
+  "type": "apoli:phasing",
+  "block_condition": {
+    "type": "apoli:in_tag",
+    "tag": "#masked:canopy"
+  },
+  "render_type": "none",
+  "condition": {
+    "type": "apoli:resource",
+    "resource": "masked:jungle_companion/parrot/companion",
+    "comparison": "==",
+    "compare_to": 1
+  },
+  "hidden": true
+}

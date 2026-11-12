@@ -1,0 +1,10 @@
+{
+  "type": "apoli:modify_player_spawn",
+  "dimension": "minecraft:overworld",
+  "biome": "minecraft:jungle",
+  "biome_condition": {
+    "type": "apoli:in_tag",
+    "tag": "minecraft:is_jungle"
+  },
+  "hidden": true
+}

@@ -1,0 +1,14 @@
+{
+  "type": "apoli:custom_model_render",
+  "mode": "geometry",
+  "model_location": "masked:the_mask",
+  "texture_location": "masked:textures/entity/the_mask.png",
+  "render_type": "cutout",
+  "condition": {
+    "type": "apoli:resource",
+    "resource": "masked:the_mask/worn",
+    "comparison": "==",
+    "compare_to": 1
+  },
+  "hidden": true
+}
